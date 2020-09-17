@@ -1,8 +1,21 @@
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
 
 const App = props => {
   const [state ,setState] = useState(props)
   const {name , price} = state
+
+  useEffect (()=>{
+    console.log('This is like component DidMount or componentDidUpdate');
+  })
+
+  useEffect (()=>{
+    console.log('This is like component DidMount');
+  },[])
+
+  useEffect (()=>{
+    console.log('This collback is for name only.');
+  },[name])
+
   return (
     <>
       <p>現在の{name}は、{price}円です。</p>
